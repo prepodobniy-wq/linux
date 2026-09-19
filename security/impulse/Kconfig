@@ -1,0 +1,7 @@
+config SECURITY_IMPULSE
+    bool "Impulse security module"
+    depends on SECURITY
+    default n
+    help
+      Impulse Guard: security monitor for Impulse Linux.
+      If unsure, say N.

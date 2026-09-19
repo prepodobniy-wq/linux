@@ -109,6 +109,12 @@
 #define __COUNT_LSMS(skipped_arg, args...) COUNT_ARGS(args...)
 #define COUNT_LSMS(args...) __COUNT_LSMS(args)
 
+#if IS_ENABLED(CONFIG_SECURITY_IMPULSE)
+#define IMPULSE_ENABLED 1,
+#else
+#define IMPULSE_ENABLED
+#endif
+
 #define MAX_LSM_COUNT			\
 	COUNT_LSMS(			\
 		CAPABILITIES_ENABLED	\
@@ -117,6 +123,7 @@
 		APPARMOR_ENABLED	\
 		TOMOYO_ENABLED		\
 		YAMA_ENABLED		\
+		IMPULSE_ENABLED		\
 		LOADPIN_ENABLED		\
 		LOCKDOWN_ENABLED	\
 		SAFESETID_ENABLED	\
@@ -127,6 +134,7 @@
 		IPE_ENABLED)
 
 #else
+
 
 #define MAX_LSM_COUNT 0
 
